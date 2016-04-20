@@ -18,7 +18,7 @@ import edu.princeton.cs.introcs.*;
  */
 public class PoliticalMap {
     public static void main(String[] args){
-        
+        StdDraw.setCanvasSize(700,700);
         
     }
 }
