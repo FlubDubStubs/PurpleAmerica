@@ -18,8 +18,7 @@ import edu.princeton.cs.introcs.*;
  */
 public class PoliticalMap {
     public static void main(String[] args){
-        //comment
-        System.out.println("hello world");
+        
         
     }
 }
