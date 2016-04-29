@@ -14,15 +14,41 @@ import java.util.Scanner;
  */
 public class LineDrawer {
     
-    public void draw(){
+    double[] xcoord;
+    double[] ycoord;
+    
+    public void draw()throws Exception{
         
-        System.out.print("Please enter a state's initials (ex. NY) and then .txt");
-        Scanner scanText = new Scanner(System.in);
-        String file = scanText.next();
-        File in = new File (file);
+        try{
+            /*System.out.print("Please enter a state's initials (ex. NY) and then .txt");
+            Scanner scanText = new Scanner(System.in);
+            String file = scanText.next();*/
+            File in = new File ("VA.txt");
+            Scanner scan = new Scanner(in);
+            scan.nextLine();
+            scan.nextLine();
+            int counties = scan.nextInt();
+
+            for(int i = 0; i < counties; i++){
+                scan.next();
+                String countyName = scan.next();
+                scan.nextLine();
+                int points = scan.nextInt();
+                xcoord = new double [points];
+                ycoord = new double [points];
+                for(int x = 0; x < points; x++){
+                    xcoord[0] = scan.nextInt();
+                    ycoord[0] = scan.nextInt();
+                }//end for loop
+                StdDraw.setPenRadius(.005);
+                StdDraw.setPenColor(StdDraw.BLACK);
+                StdDraw.polygon(xcoord, ycoord);
+            }//end for loop
+        }
+        catch(IOException e){
+            System.out.println("hello world");
+        }
         
-        StdDraw.setPenRadius(.005);
-        StdDraw.setPenColor(StdDraw.BLACK);
         
     }//end draw
     
