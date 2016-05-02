@@ -16,14 +16,7 @@ import java.util.*;
 public class FileReader {
     
     
-            Scanner scan = new Scanner(System.in);
-            File state = new File("VA.txt");
-            
-            //Trying to read the files and just print them for a test 
-            
-            scan.nextLine(state);
-            
-            System.out.println(state);
+      
             
             
             
