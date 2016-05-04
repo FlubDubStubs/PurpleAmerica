@@ -23,9 +23,9 @@ import java.util.logging.Logger;
  */
 public class PoliticalMap {
     public static void main(String[] args){
-        StdDraw.setCanvasSize(700,700);
+        //StdDraw.setCanvasSize(700,700);
         
-              File state = new File("src\\data\\VA.txt");
+            File state = new File("src\\data\\VA.txt");
             Scanner scan;
             
         try {
@@ -33,7 +33,7 @@ public class PoliticalMap {
             //Trying to read the files and just print them for a test
                         
                         
-            System.out.println(scan.nextLine());
+            System.out.println(scan.next());
 
         } catch (FileNotFoundException ex) {
             System.out.println("here");
