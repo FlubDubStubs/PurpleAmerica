@@ -19,8 +19,8 @@ public class LineDrawer {
     int counties; //number of counties/states
     //String name; //name of the county/state for reference (might not need it)
     int points; //the number of coordinates
-    double[] xcoords;
-    double[] ycoords;
+    double[] xcoords; //x coordinates of the county/state being drawn
+    double[] ycoords; //y coordinates of the county/state being drawn
       
     //******************Constructor*****************
     public LineDrawer(Coordinate[] c, int divs, int dots){
@@ -34,15 +34,15 @@ public class LineDrawer {
     
     //*****************Public Methods****************
     public void draw(){
-        for(int n = 0; n < counties; n++){
-            xcoords[n] = coords[n].getX();
-            ycoords[n] = coords[n].getY();
+        for(int n = 0; n < points; n++){
+            xcoords[n] = coords[n].getX(); //takes the x coordinate from each coordinate
+            ycoords[n] = coords[n].getY(); //takes the y coordinate from each coordinate
         }//end for loop
         
         for(int i = 0; i < counties; i++){
             StdDraw.setPenRadius(.005);
             StdDraw.setPenColor(StdDraw.BLACK);
-            StdDraw.polygon(xcoords, ycoords);
+            StdDraw.polygon(xcoords, ycoords); //draws a polygon with the x and y coordinates w/ .005 radius and the color black
         }//end for loop        
     }//end draw
     

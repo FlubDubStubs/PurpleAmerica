@@ -29,7 +29,7 @@ public class Coordinate {
     }
     
     
-    Coordinate[] pointFinder(){
+    public Coordinate[] pointFinder(){
             
             
         
@@ -40,12 +40,13 @@ public class Coordinate {
         
                 for(int i = 0; i > numPoints; i ++){
                     
-                        double a = scan.nextDouble();
-                        double b = scan.nextDouble();
-                        points[i] = new Coordinate(a, b);  
+                        lat = scan.nextDouble();
+                        lon = scan.nextDouble();
+                        points[i] = new Coordinate(lat, lon);  
                     
                 }
             
+            //LineDrawer draw = new LineDrawer(points, numPoints, );
             
             return points;
         }

@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class PoliticalMap {
     public static void main(String[] args){
-        //StdDraw.setCanvasSize(700,700);
+        StdDraw.setCanvasSize(700,700);
         
             File state = new File("src\\data\\VA.txt");
             Scanner scan;
@@ -39,8 +39,9 @@ public class PoliticalMap {
             System.out.println("here");
         }
 
-            
-             
+        Coordinate coord = new Coordinate(0, 0); 
+        coord.pointFinder();
+        
         
     }
 }
