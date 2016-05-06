@@ -35,6 +35,10 @@ public class Coordinate {
         
                 scan.nextLine();
                 scan.nextLine();
+                scan.nextLine();
+                scan.nextLine();
+                scan.nextLine();
+                
                 numPoints = scan.nextInt();
                 points = new Coordinate[numPoints];
         
@@ -42,6 +46,7 @@ public class Coordinate {
                     
                         double a = scan.nextDouble();
                         double b = scan.nextDouble();
+                        
                         points[i] = new Coordinate(a, b);  
                     
                 }
