@@ -14,42 +14,36 @@ import java.util.Scanner;
  */
 public class LineDrawer {
     
-    double[] xcoord;
-    double[] ycoord;
+    //*******************Variables******************
+    Coordinate[] coords; //coordinates of the county/state being drawn
+    int counties; //number of counties/states
+    //String name; //name of the county/state for reference (might not need it)
+    int points; //the number of coordinates
+    double[] xcoords;
+    double[] ycoords;
+      
+    //******************Constructor*****************
+    public LineDrawer(Coordinate[] c, int divs, int dots){
+        points = dots;
+        coords = new Coordinate [points];
+        coords = c;
+        counties = divs;
+        xcoords = new double [points];
+        ycoords = new double [points];
+    }
     
-    public void draw()throws Exception{
+    //*****************Public Methods****************
+    public void draw(){
+        for(int n = 0; n < counties; n++){
+            xcoords[n] = coords[n].getX();
+            ycoords[n] = coords[n].getY();
+        }//end for loop
         
-        try{
-            /*System.out.print("Please enter a state's initials (ex. NY) and then .txt");
-            Scanner scanText = new Scanner(System.in);
-            String file = scanText.next();*/
-            File in = new File ("VA.txt");
-            Scanner scan = new Scanner(in);
-            scan.nextLine();
-            scan.nextLine();
-            int counties = scan.nextInt();
-
-            for(int i = 0; i < counties; i++){
-                scan.next();
-                String countyName = scan.next();
-                scan.nextLine();
-                int points = scan.nextInt();
-                xcoord = new double [points];
-                ycoord = new double [points];
-                for(int x = 0; x < points; x++){
-                    xcoord[0] = scan.nextInt();
-                    ycoord[0] = scan.nextInt();
-                }//end for loop
-                StdDraw.setPenRadius(.005);
-                StdDraw.setPenColor(StdDraw.BLACK);
-                StdDraw.polygon(xcoord, ycoord);
-            }//end for loop
-        }
-        catch(IOException e){
-            System.out.println("hello world");
-        }
-        
-        
+        for(int i = 0; i < counties; i++){
+            StdDraw.setPenRadius(.005);
+            StdDraw.setPenColor(StdDraw.BLACK);
+            StdDraw.polygon(xcoords, ycoords);
+        }//end for loop        
     }//end draw
     
-}
+}//close class
