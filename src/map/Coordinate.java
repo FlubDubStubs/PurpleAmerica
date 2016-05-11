@@ -16,9 +16,7 @@ public class Coordinate {
     
     double lat;
     double lon;
-    int numPoints;
-    Coordinate[] points; 
-    Scanner scan = new Scanner(System.in);
+ 
    
     
     Coordinate (double x, double y){
@@ -29,26 +27,7 @@ public class Coordinate {
     }
     
     
-    Coordinate[] pointFinder(){
-            
-            
-        
-                scan.nextLine();
-                scan.nextLine();
-                numPoints = scan.nextInt();
-                points = new Coordinate[numPoints];
-        
-                for(int i = 0; i > numPoints; i ++){
-                    
-                        double a = scan.nextDouble();
-                        double b = scan.nextDouble();
-                        points[i] = new Coordinate(a, b);  
-                    
-                }
-            
-            
-            return points;
-        }
+    
     
     public double getX(){
         
@@ -60,6 +39,15 @@ public class Coordinate {
         
         return lon; 
         
+    }
+    
+    public String toString(){
+        String str = "";
+        
+        str += lat;
+        str+= " " + lon;
+        
+        return str;
     }
     
 }
