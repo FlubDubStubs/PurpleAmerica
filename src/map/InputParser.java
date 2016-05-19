@@ -21,6 +21,7 @@ public class InputParser {
     int numPoints;
     int numCounty;
     Coordinate[] points; 
+    Votes[] votes;
     Scanner scan;
     
     public InputParser(String state) throws Exception{
@@ -73,22 +74,14 @@ public class InputParser {
              return min;
          }
        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-  
-      // double Parse(){
-           
-        //  return map object
-       //}
-    
-    
+         
+         Votes[] getVotes(){
+             
+             
+             
+             
+             return votes;
+         }
     
     
 }
