@@ -25,7 +25,7 @@ public class StateNamer  {
          double centerY;
          Coordinate center; 
             
-        StateNamer(String name){
+        StateNamer(String name) throws Exception{
             String stateN = name;
             InputParser state = new InputParser(stateN);
             
