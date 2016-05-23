@@ -40,7 +40,7 @@ public class PoliticalMap {
         }
 
         Coordinate coord = new Coordinate(0, 0); 
-        coord.pointFinder();
+        //coord.pointFinder();
         
         
     }
