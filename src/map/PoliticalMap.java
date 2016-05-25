@@ -22,7 +22,8 @@ import java.util.logging.Logger;
  * @author 
  */
 public class PoliticalMap {
-    public static void main(String[] args) throws Exception{
+    
+    /*public static void main(String[] args) throws Exception{
         StdDraw.setCanvasSize(1000,665);
         //We need to make a method for this to resize it according to each state
         
@@ -37,5 +38,5 @@ public class PoliticalMap {
         input.pointFinder();
         
         
-    }
+    }*/
 }
