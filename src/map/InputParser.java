@@ -30,29 +30,38 @@ public class InputParser {
     
     //This method is used to all of the points within a single county
     Coordinate[] pointFinder(){
-            
-            
-                scan.nextLine();
-                scan.nextLine();
+                
+            double minX = scan.nextDouble();
+            double minY = scan.nextDouble();
+            double maxX = scan.nextDouble();
+            double maxY = scan.nextDouble();
+            numCounty = scan.nextInt();
+
+            for(int x = 0; x < numCounty; x++){
                 scan.nextLine();
                 scan.nextLine();
                 scan.nextLine();
                 scan.nextLine();
                 numPoints = scan.nextInt();
                 points = new Coordinate[numPoints];
-        
+
                 for(int i = 0; i < numPoints; i ++){
-                    
+
                         double a = scan.nextDouble();
                         double b = scan.nextDouble();
                         points[i] = new Coordinate(a, b);  
-                        
-                    
+
+
                 }
-            
-            
-            return points;
-        }
+
+                LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
+                drawer.draw();
+
+            }
+
+
+        return points;
+    }
     
         //These methods are used to find the outer limits of the bounding box surrounding the state
          Coordinate getMax(){
