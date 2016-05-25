@@ -26,6 +26,9 @@ public class Coordinate {
         
     }
     
+    
+    
+    
     public double getX(){
         
         return lat;
