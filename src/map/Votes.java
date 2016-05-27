@@ -32,7 +32,7 @@ public class Votes {
             
             
             
-            return cName;
+            return c;
         }
         
     
