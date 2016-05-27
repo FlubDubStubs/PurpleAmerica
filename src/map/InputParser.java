@@ -30,7 +30,7 @@ public class InputParser {
     }
     
     //This method is used to all of the points within a single county
-    Coordinate[] pointFinder(){
+    Coordinate[] pointFinder(boolean albersSelected){
                 
             double minX = scan.nextDouble();
             double minY = scan.nextDouble();
@@ -54,9 +54,15 @@ public class InputParser {
 
 
                 }
-
-                LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
-                drawer.draw();
+                if(albersSelected){
+                   LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
+                    drawer.drawAlbers(); 
+                }//end if
+                else{
+                    LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
+                    drawer.draw();
+                }//end else
+                
 
             }
 
