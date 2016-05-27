@@ -31,6 +31,14 @@ public class State {
     private Coordinate findCentroid(Coordinate[] v){
         
         //takes average of x + y values in order to find the centeroid coordinate
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     private String findAbbrev(String n){
@@ -38,10 +46,10 @@ public class State {
         //checks if state exsits in order to make the proper abbrev. 
     }
     
-    public void draw Abbrev(){
+    //public void draw Abbrev(){
         
         
-    }
+    //}
     
     
 }
