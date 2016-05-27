@@ -56,7 +56,7 @@ public class InputParser {
                 }
                 if(albersSelected){
                    LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
-                    drawer.drawAlbers(); 
+                   drawer.drawAlbers(); 
                 }//end if
                 else{
                     LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
