@@ -21,14 +21,14 @@ public class State {
         
         vertices = v;
         name = n;
-        centroid = findCentroid(v);
-        abbrev = findAbbrev(n);
+        //centroid = findCentroid(v);
+        //abbrev = findAbbrev(n);
         
         
     }       
     
     
-    private Coordinate findCentroid(Coordinate[] v){
+    /*private Coordinate findCentroid(Coordinate[] v){
         
         //takes average of x + y values in order to find the centeroid coordinate
     }
@@ -38,10 +38,10 @@ public class State {
         //checks if state exsits in order to make the proper abbrev. 
     }
     
-    public void draw Abbrev(){
+    public void drawAbbrev(){
         
         
-    }
+    }*/
     
     
 }
