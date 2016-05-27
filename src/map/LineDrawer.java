@@ -56,10 +56,10 @@ public class LineDrawer {
         xMin = minx;
         yMax = maxy;
         yMin = miny;
-        lambda0 = 0;
+        lambda0 = -45;
         phi0 = 0;
-        phi1 = -60;
-        phi2 = 0;
+        phi1 = -31;
+        phi2 = 29;
     }
     
     //*****************Public Methods****************
@@ -67,13 +67,13 @@ public class LineDrawer {
         for(int i = 0; i < xcoords.length; i++){ 
             lambda = coords[i].getX(); //lambda is x
             phi = coords[i].getY(); //phi is y
-            n = .5*(Math.sin(phi1)+Math.sin(phi2)); //bunch of equations used to convert the coordinates
+            n = .5*(Math.sin(phi1*Math.PI/180)+Math.sin(phi2*Math.PI/180)); //bunch of equations used to convert the coordinates
             theta = n*(lambda-lambda0);
-            c = Math.pow(Math.cos(phi1), 2)+ 2*n*Math.sin(phi1);
-            rho = (Math.sqrt(c-(2*n*Math.sin(phi))))/n;
-            rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0))))/n;
-            x = rho*Math.sin(theta);
-            y = rho0 - rho*Math.cos(theta);
+            c = Math.pow(Math.cos(phi1*Math.PI/180), 2)+ 2*n*Math.sin(phi1*Math.PI/180);
+            rho = (Math.sqrt(c-(2*n*Math.sin(phi*Math.PI/180))))/n;
+            rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0*Math.PI/180))))/n;
+            x = rho*Math.sin(theta*Math.PI/180);
+            y = rho0 - rho*Math.cos(theta*Math.PI/180);
             xcoordsAlbers[i] = x; //sets x and y equal to the Albers converted x and y
             ycoordsAlbers[i] = y;
         }//end for
@@ -83,13 +83,13 @@ public class LineDrawer {
     public void convertMin(){
         lambda = xMin; //lambda is x
         phi = yMin; //phi is y
-        n = .5*(Math.sin(phi1)+Math.sin(phi2)); //bunch of equations used to convert the coordinates
+        n = .5*(Math.sin(phi1*Math.PI/180)+Math.sin(phi2*Math.PI/180)); //bunch of equations used to convert the coordinates
         theta = n*(lambda-lambda0);
-        c = Math.pow(Math.cos(phi1), 2)+ 2*n*Math.sin(phi1);
-        rho = (Math.sqrt(c-(2*n*Math.sin(phi))))/n;
-        rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0))))/n;
-        x = rho*Math.sin(theta);
-        y = rho0 - rho*Math.cos(theta);
+        c = Math.pow(Math.cos(phi1*Math.PI/180), 2)+ 2*n*Math.sin(phi1*Math.PI/180);
+        rho = (Math.sqrt(c-(2*n*Math.sin(phi*Math.PI/180))))/n;
+        rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0*Math.PI/180))))/n;
+        x = rho*Math.sin(theta*Math.PI/180);
+        y = rho0 - rho*Math.cos(theta*Math.PI/180);
         xMinAlbers = x;
         yMinAlbers = y;
                 
@@ -98,13 +98,13 @@ public class LineDrawer {
     public void convertMax(){        
         lambda = xMax; //lambda is x
         phi = yMax; //phi is y
-        n = .5*(Math.sin(phi1)+Math.sin(phi2)); //bunch of equations used to convert the coordinates
+        n = .5*(Math.sin(phi1*Math.PI/180)+Math.sin(phi2*Math.PI/180)); //bunch of equations used to convert the coordinates
         theta = n*(lambda-lambda0);
-        c = Math.pow(Math.cos(phi1), 2)+ 2*n*Math.sin(phi1);
-        rho = (Math.sqrt(c-(2*n*Math.sin(phi))))/n;
-        rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0))))/n;
-        x = rho*Math.sin(theta);
-        y = rho0 - rho*Math.cos(theta);
+        c = Math.pow(Math.cos(phi1*Math.PI/180), 2)+ 2*n*Math.sin(phi1*Math.PI/180);
+        rho = (Math.sqrt(c-(2*n*Math.sin(phi*Math.PI/180))))/n;
+        rho0 = (Math.sqrt(c-(2*n*Math.sin(phi0*Math.PI/180))))/n;
+        x = rho*Math.sin(theta*Math.PI/180);
+        y = rho0 - rho*Math.cos(theta*Math.PI/180);
         xMaxAlbers = x;
         yMaxAlbers = y;
                 
