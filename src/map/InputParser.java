@@ -6,6 +6,7 @@
 
 package map;
 
+import java.awt.Color;
 import java.util.Scanner;
 
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
  * @author hcps-taylorsd
  */
 import java.io.File;
+import java.io.FileNotFoundException;
 public class InputParser {
     
     
@@ -37,10 +39,11 @@ public class InputParser {
     public InputParser(String state) throws Exception{
         
         scan = new Scanner(new File("src\\data\\" + state +".txt") );
+        
     }
     
     //This method is used to all of the points within a single county
-    Coordinate[] pointFinder(boolean albersSelected){
+    Coordinate[] pointFinder(boolean albersSelected, int year) throws FileNotFoundException{
                 
             double minX = scan.nextDouble();
             double minY = scan.nextDouble();
@@ -64,12 +67,16 @@ public class InputParser {
 
 
                 }
+                
+                findVotes(year);
+                FillColor fill = new FillColor();
+                Color[] purple = fill.draw(total);
+                LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY, purple);
+                
                 if(albersSelected){
-                   LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
                    drawer.drawAlbers(); 
                 }//end if
                 else{
-                    LineDrawer drawer = new LineDrawer(points, numPoints, minX, minY, maxX, maxY);
                     drawer.draw();
                 }//end else
                 
@@ -109,12 +116,13 @@ public class InputParser {
              return min;
          }
        
-         Votes[] findVotes(int numCounty){
-            scan.nextLine();
+         Votes[] findVotes(int year) throws FileNotFoundException{
+            Scanner scanYr = new Scanner(new File("src\\data\\"+year+".txt"));
+            scanYr.nextLine();
             int i = 0;
-            while(scan.hasNextLine()){
+            while(scanYr.hasNextLine()){
                     
-                    vLine = scan.nextLine(); 
+                    vLine = scanYr.nextLine(); 
                     votes = vLine.split(",", 4);
                     int rep = Integer.parseInt(votes[1]);
                     int dem = Integer.parseInt(votes[2]);

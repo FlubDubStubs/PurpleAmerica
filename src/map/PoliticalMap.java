@@ -136,20 +136,19 @@ public class PoliticalMap extends javax.swing.JFrame {
         }//end else
         
         File state = new File("src\\data\\"+stateName+".txt");
-        //File electYear = new File("src\\data\\"+year+".txt");
+        File electYear = new File("src\\data\\"+year+".txt");
         Scanner scanState;
-        //Scanner scanYear;
+        Scanner scanYear;
         
         try{
             StdDraw.setCanvasSize(665,665);
-            //We need to make a method for this to resize it according to each state
             scanState = new Scanner(state);
-            //scanYear = new Scanner(electYear);
+            scanYear = new Scanner(electYear);
             InputParser input = new InputParser(stateName);
-            input.pointFinder(albersSelected);
+            input.pointFinder(albersSelected, year);
         }
         catch(Exception e){
-            System.out.print("why can i not just do throws exception");
+            System.out.print("Please enter in a valid state and year.");
         }
     }//GEN-LAST:event_newStateActionPerformed
 

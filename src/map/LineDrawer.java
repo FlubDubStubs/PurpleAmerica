@@ -6,6 +6,7 @@
 
 package map;
 import edu.princeton.cs.introcs.*;
+import java.awt.Color;
 import java.io.*;
 import java.util.Scanner;
 /**
@@ -41,10 +42,11 @@ public class LineDrawer {
     double phi; //variable for converting to Albers projection
     double phi0; //variable for converting to Albers projection
     double phi1; //variable for converting to Albers projection
-    double phi2; //variable for converting to Albers projection
+    double phi2; //variable for converting to Albers projection    
+    Color[] purple; //array of colors
           
     //******************Constructor*****************
-    public LineDrawer(Coordinate[] c, int dots, double minx, double miny, double maxx, double maxy){
+    public LineDrawer(Coordinate[] c, int dots, double minx, double miny, double maxx, double maxy, Color[] pur){
         points = dots;
         coords = new Coordinate[points];
         coords = c;
@@ -60,6 +62,7 @@ public class LineDrawer {
         phi0 = 0;
         phi1 = -60;
         phi2 = 0;
+        purple = pur;
     }
     
     //*****************Public Methods****************
@@ -120,10 +123,9 @@ public class LineDrawer {
         
         for(int i = 0; i < points; i++){
             StdDraw.setPenRadius(.005);
-            /*FillColor paint = new FillColor();
-            //StdDraw.setPenColor(paint.setColor());
-            StdDraw.filledpolygon(xcoords, ycoords);
-            */
+            FillColor paint = new FillColor();
+            StdDraw.setPenColor(purple[i]);
+            StdDraw.filledPolygon(xcoords, ycoords);
             StdDraw.setPenColor(StdDraw.BLACK);
             StdDraw.polygon(xcoords, ycoords); //draws a polygon with the x and y coordinates w/ .005 radius and the color black
         }//end for loop        
@@ -138,10 +140,9 @@ public class LineDrawer {
         
         for(int i = 0; i < points; i++){
             StdDraw.setPenRadius(.005);
-            /*FillColor paint = new FillColor();
-            //StdDraw.setPenColor(paint.setColor());
-            StdDraw.filledpolygon(xcoordsAlbers, ycoordsAlbers);
-            */
+            FillColor paint = new FillColor();
+            StdDraw.setPenColor(purple[i]);
+            StdDraw.filledPolygon(xcoordsAlbers, ycoordsAlbers);
             StdDraw.setPenColor(StdDraw.BLACK);
             StdDraw.polygon(xcoordsAlbers, ycoordsAlbers); //draws a polygon with the Albers x and y coordinates w/ .005 radius and the color black
         }//end for loop        

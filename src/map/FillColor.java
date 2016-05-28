@@ -15,15 +15,21 @@ import java.awt.Color;
 public class FillColor {
     
     @SuppressWarnings("empty-statement")
-    public void draw(){
-      //StdDraw.setPenColor(StdDraw.BLUE);
-      //StdDraw.filledRectangle(0.4, 0.3, 0.3, 0.25);
-      int rep = 1;//will be republicans for every county and state
-      int dem = 2;//wil be democrats for every country and state
-      int other = 3;//will be third party or non voting
-      Color map = new Color((rep/rep+dem+other),(dem/rep+dem+other),(other/rep+dem+other));//makes an rgb color of how all 3 ints relate to one another
-      StdDraw.setPenColor(map);//sets pen color as the rgb color
-      StdDraw.line(.2, .2, .4, .4);//test draw a line of that color
+    Color map;
+    int rep;//will be republicans for every county and state
+    int dem;//wil be democrats for every country and state
+    int other;//will be third party or non voting
+    Color[] purpleShades;
+    
+    public Color[] draw(Votes[] colors){
+      for(int i = 0; i < colors.length; i++){
+          rep = colors[i].getRep();
+          other = colors[i].getOth();
+          dem = colors[i].getDem(); 
+          map = new Color((rep/(rep+dem+other)),(dem/(rep+dem+other)),(other/(rep+dem+other)));//makes an rgb color of how all 3 ints relate to one another
+          purpleShades[i] = map;
+      }//end for
+      return purpleShades;
     }
                                                                                                                                                                                         
 }
