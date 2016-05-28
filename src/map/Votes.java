@@ -15,15 +15,35 @@ import java.util.*;
 
 public class Votes {
     
-        int[] numVotes;
-        
+        int democrat;
+        int republican;
+        int other;        
         String cName;
         
-        Votes(String c, int[] votes){
+        Votes(int rep, int dem , int oth){
             
-                numVotes = votes;
-                cName = c;
+             democrat = dem;
+             republican = rep;
+             other = oth;
+             
             
+        }
+        
+        
+        int getDem(){
+            
+            return democrat; 
+            
+        }
+        
+        int getRep(){
+            
+            return republican; 
+        }
+        
+        int getOth(){
+            
+            return other; 
         }
         
         String splitVotes(){
