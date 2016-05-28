@@ -123,6 +123,7 @@ public class PoliticalMap extends javax.swing.JFrame {
     }//GEN-LAST:event_stateInitsActionPerformed
 
     private void newStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newStateActionPerformed
+               
         String stateName = stateInits.getText();
         String yr = electionYr.getText();
         int year = Integer.parseInt(yr);

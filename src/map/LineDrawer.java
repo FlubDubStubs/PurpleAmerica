@@ -66,6 +66,10 @@ public class LineDrawer {
     }
     
     //*****************Public Methods****************
+    
+    /*
+    Converts the Mercator coordinates into Albers
+    */
     public void convertCoords(){
         for(int i = 0; i < xcoords.length; i++){ 
             lambda = coords[i].getX(); //lambda is x
@@ -83,6 +87,9 @@ public class LineDrawer {
                 
     }//end convertCoords
     
+    /*
+    Converts the minimum bounding box Mercator coordinates into Albers
+    */
     public void convertMin(){
         lambda = xMin; //lambda is x
         phi = yMin; //phi is y
@@ -97,7 +104,10 @@ public class LineDrawer {
         yMinAlbers = y;
                 
     }//end convertMin
-    
+        
+    /*
+    Converts the maximum bounding box Mercator coordinates into Albers
+    */
     public void convertMax(){        
         lambda = xMax; //lambda is x
         phi = yMax; //phi is y
@@ -113,6 +123,9 @@ public class LineDrawer {
                 
     }//end convertMax
         
+    /*
+    Draws the counties/states
+    */
     public void draw(){
         StdDraw.setXscale(xMin, xMax);
         StdDraw.setYscale(yMin, yMax);
@@ -131,6 +144,9 @@ public class LineDrawer {
         }//end for loop        
     }//end draw
     
+    /*
+    Draws the counties/states in Albers projection.
+    */
     public void drawAlbers(){
         convertMin();
         convertMax();
