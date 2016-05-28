@@ -16,14 +16,22 @@ import java.util.Scanner;
 import java.io.File;
 public class InputParser {
     
-    Coordinate max;
-    Coordinate min;
-    int numPoints;
-    int numCounty;
-    Coordinate[] points; 
-    Votes[] votes;
-    Scanner scan;
     
+    
+    
+    Coordinate max; // this holds the largest  coordinate value for the bounding box 
+    Coordinate min; // this holds the smallest coordinate value for the bounding box
+    int numPoints; //this value is decided in pointFinder() and tells the program how many points to read
+    int numCounty; // this value is decided in pointFinder() and tells the program how many counties are in the file
+    Coordinate[] points; //this is an array of coordinates that hold all the coordinates in a state's document and is filled in pointFinder()
+    Scanner scan; //this is the scanner used to read the file and all the values the selected file holds
+    
+    /*
+    *  This constructor allows the program to read files using a scanner.
+    *
+    * @param    state   holds the file that will be read into the program so it can gather data
+    *
+    */
     public InputParser(String state) throws Exception{
         
         scan = new Scanner(new File("src\\data\\" + state +".txt") );
@@ -70,7 +78,11 @@ public class InputParser {
         return points;
     }
     
-        //These methods are used to find the outer limits of the bounding box surrounding the state
+        /*
+        * Finds the biggest coordinate values in order to create a point for the bounding box of a region
+        *
+        * @return Coordinate max
+        */
          Coordinate getMax(){
                  
              double a = scan.nextDouble();
@@ -79,6 +91,12 @@ public class InputParser {
              
              return max;
          }
+         
+         /*
+         * Finds the smallest coordinate values in order to create a point for the bounding box of a region 
+         * 
+         * @return Coordinate min
+         */
          
          Coordinate getMin(){
              
@@ -90,13 +108,7 @@ public class InputParser {
          }
        
          
-         Votes[] getVotes(){
-             
-             
-             
-             
-             return votes;
-         }
+
     
     
 }
