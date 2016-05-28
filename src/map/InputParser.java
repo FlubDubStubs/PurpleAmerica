@@ -25,7 +25,9 @@ public class InputParser {
     int numCounty; // this value is decided in pointFinder() and tells the program how many counties are in the file
     Coordinate[] points; //this is an array of coordinates that hold all the coordinates in a state's document and is filled in pointFinder()
     Scanner scan; //this is the scanner used to read the file and all the values the selected file holds
-    
+    Votes[] total;
+    String vLine;
+    String[] votes;
     /*
     *  This constructor allows the program to read files using a scanner.
     *
@@ -107,7 +109,22 @@ public class InputParser {
              return min;
          }
        
-         
+         Votes[] findVotes(int numCounty){
+            scan.nextLine();
+            int i = 0;
+            while(scan.hasNextLine()){
+                    
+                    vLine = scan.nextLine(); 
+                    votes = vLine.split(",", 4);
+                    int rep = Integer.parseInt(votes[1]);
+                    int dem = Integer.parseInt(votes[2]);
+                    int oth = Integer.parseInt(votes[3]);
+                    Votes results = new Votes(rep, dem, oth);
+                    total[i] = results;
+                    i++;
+            }
+         return total;
+        }
 
     
     
